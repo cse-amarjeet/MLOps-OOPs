@@ -1,9 +1,22 @@
 class chatbook:
+    __user_id = -1
     def __init__(self):
+        self.id = chatbook.__user_id
+        self.__name="amar"
         self.username = ""
         self.password = ""
         self.loggedin = False
-        self.menu()
+        # self.menu()
+        chatbook.__user_id +=1
+
+
+    @staticmethod
+    def set_id(val):
+        chatbook.__user_id = val
+    
+    @staticmethod
+    def get_id():
+        return chatbook.__user_id
 
     def menu(self):
         user_input = input("""Welcome to chatbook !! how would you like to proceed?
@@ -53,7 +66,7 @@ class chatbook:
         else:
             print("you need signin first before posting")
         self.menu()
-        
+
     def send_message(self):
         if self.loggedin == True:
             txt = input("Enter you message here: ")
